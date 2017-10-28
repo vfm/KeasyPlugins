@@ -1,14 +1,13 @@
-Introduction
+Einführung
 ============
 
-The purpose of this project is to help scientists write better documentation.
+Dieses Projekt beinhaltet die aufbauende Dokumentation für Keasy-Plugins.
 
 
-Contents:
+Inhalt:
 
 .. toctree::
    :maxdepth: 3
-
 
    source/intro
 
