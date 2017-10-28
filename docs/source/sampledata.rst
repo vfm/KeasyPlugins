@@ -1,53 +1,12 @@
 SampleData
 ==========
 
-    :::csharp
-    static void Main()
-    {
-        var account = new Account(1, "sacha barber", "112233", 0);
-        var syncLock = new object();
+.. code-block:: c#
 
-        // start two asynchronous tasks that both mutate the account balance
-
-        var task1 = Task.Run(() =>
-        {
-            var threadId = Thread.CurrentThread.ManagedThreadId;
-
-            Console.WriteLine("Thread Id {0}, Account balance before: {1}",
-                threadId, account.Balance);
-
-            lock (syncLock)
-            {
-                Console.WriteLine("Thread Id {0}, Adding 10 to balance",
-                    threadId);
-                account.Balance += 10;
-                Console.WriteLine("Thread Id {0}, Account balance after: {1}",
-                    threadId, account.Balance);
-            }
-        });
-
-        var task2 = Task.Run(() =>
-        {
-            var threadId = Thread.CurrentThread.ManagedThreadId;
-
-            Console.WriteLine("Thread Id {0}, Account balance before: {1}",
-                threadId, account.Balance);
-
-            lock (syncLock)
-            {
-                Console.WriteLine("Thread Id {0}, Subtracting 4 from balance",
-                   threadId);
-                account.Balance -= 4;
-                Console.WriteLine("Thread Id {0}, Account balance after: {1}",
-                    threadId, account.Balance);
-            }
-        });
-
-        // wait for all tasks to complete
-        task1.Wait();
-        task2.Wait();
-    }
-
+public void Foo()
+{
+  // Foo all the things!
+}
 
 .. py:class:: SampleData(seed=None)
 
