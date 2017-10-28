@@ -1,4 +1,4 @@
-Einfacher Einstieg
+Zuweisen von Eigenschaften
 ==========
 
 Die Variable *bo* enthält das aktuelle Business Object. In einer mehrfach Auswahl von Datensätzen wird das komplette Script je markiertem Datensatz erneut ausgeführt. Um die Schleife muss sich also das Plugin in der einfachen Form nicht kümmern. 
