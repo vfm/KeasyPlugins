@@ -28,4 +28,4 @@ Datum
   bo.Datum = bo.Datum.AddDays(5); // 5 Tage mehr als bisher
   bo.Datum = bo.Datum.AddMonths(-2); // 2 Monate weniger als bisher
 
-`Microsoft MSDN <https://msdn.microsoft.com/de-de/library/system.datetime_methods(v=vs.110).aspx>`_
+Weitere Infos zu DateTime-Methoden in der `Microsoft MSDN <https://msdn.microsoft.com/de-de/library/system.datetime_methods(v=vs.110).aspx>`_
