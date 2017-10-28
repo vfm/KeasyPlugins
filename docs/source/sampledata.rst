@@ -3,10 +3,10 @@ SampleData
 
 .. code-block:: c#
 
-public void Foo()
-{
-  // Foo all the things!
-}
+  public void Foo()
+  {
+    // Foo all the things!
+  }
 
 .. py:class:: SampleData(seed=None)
 
