@@ -29,3 +29,17 @@ Datum
   bo.Datum = bo.Datum.AddMonths(-2); // 2 Monate weniger als bisher
 
 Weitere Infos zu DateTime-Methoden in der `Microsoft MSDN <https://msdn.microsoft.com/de-de/library/system.datetime_methods(v=vs.110).aspx>`_
+
+
+Benutzer
+------------
+
+.. code-block:: c#
+
+  using Keasy.Module.BusinessObjects.Rechtesystem;
+  using Keasy.Module.Tools;
+
+  bo.Zuständig = View.ObjectSpace.Query<Benutzer>().Single(x => x.Benutzername == "a.meier");
+
+Setzt den Zuständigen einer Aktivität (ist ein Benutzer) auf einen festen Benutzer, der anhand eines Benutzernamens aus der Benutzerverwaltung ermittelt wird.
+Die beiden Namensräume (usings) müssen angegeben werden, um die Typen aus anderen Keasy Bereichen nutzen zu können. Über *Keasy.Module.Tools* wird die Erweiterungsmethode *Query* bereitgestellt.
