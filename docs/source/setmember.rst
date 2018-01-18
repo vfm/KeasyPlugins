@@ -44,7 +44,7 @@ Benutzer
 Setzt den Zuständigen einer Aktivität (ist ein Benutzer) auf einen festen Benutzer, der anhand eines Benutzernamens aus der Benutzerverwaltung ermittelt wird.
 Die beiden Namensräume (usings) müssen angegeben werden, um die Typen aus anderen Keasy Bereichen nutzen zu können. Über *Keasy.Module.Tools* wird die Erweiterungsmethode *Query* bereitgestellt.
 
-Hier wird der aktuell angemeldete Benutzer gesetzt:
+Hier wird der aktuell angemeldete Benutzer bei den markierten Datensätzen gesetzt:
 
 .. code-block:: c#
 
@@ -52,3 +52,19 @@ Hier wird der aktuell angemeldete Benutzer gesetzt:
   using Keasy.Module.Tools;
   
   bo.Zuständig = View.ObjectSpace.Query<Benutzer>().Single(x => x.Oid.ToString() == SecuritySystem.CurrentUserId.ToString());
+
+Hier ein Beispiel für eine Änderung aller Sachbearbeiter bei **allen** in der Datenbank vorhandenen **KFZ-Verträge**:
+
+.. code-block:: c#
+
+  using Keasy.Module.BusinessObjects.Rechtesystem;
+  using Keasy.Module.Tools;
+
+  Benutzer sach = View.ObjectSpace.Query<Benutzer>().Single(x => x.Benutzername == "a.meier");
+
+  int i = 0;
+  View.ObjectSpace.Query<VertragKFZ>().Where(x => x.Sachbearbeiter != sach).ToList().ForEach(x => {x.Sachbearbeiter = sach; i++;});
+  MessageBox.Show(i.ToString());
+
+
+
